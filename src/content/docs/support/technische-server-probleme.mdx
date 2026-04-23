@@ -1,0 +1,113 @@
+---
+title: Technische Server-Probleme
+description: Dieses Dokument dient als detaillierte Referenz für das
+  Support-Team zur Bewältigung technischer Herausforderungen im
+  FiveM-Hosting-Umfeld. Es definiert die Grenzen unserer Dienstleistung und
+  bietet strukturierte Lösungswege für häufig auftretende Probleme.
+---
+## 1. Definition der Support-Zuständigkeit
+
+Unser Versprechen ist die Bereitstellung einer stabilen, hochperformanten Infrastruktur. Die inhaltliche Gestaltung und Wartung der Server-Software (Scripts, Frameworks, MLOs) obliegt dem Kunden.
+
+### Grundsatz der Nicht-Einmischung
+
+* **Kein Script-Debugging:** Support-Mitarbeiter untersuchen keine fehlerhaften Lua-Scripts oder SQL-Fehler innerhalb von Frameworks (ESX, QBCore, vRP).
+* **Infrastruktur vs. Content:** Wenn die Pterodactyl-Konsole "Running" anzeigt, ist unsere Dienstleistung erbracht. Fehler, die danach in der Konsole erscheinen, sind fast ausnahmslos Konfigurationsfehler des Kunden.
+
+### Ausnahmeregelung
+
+Support wird nur geleistet, wenn ein neu installierter Server ohne jegliche Modifikationen des Kunden nicht startet. In diesem Fall liegt ein potenzieller Fehler im "Egg" (Installations-Script) oder dem Host-System vor.
+
+## 2. Pflichtdaten für die Bearbeitung
+
+Jedes technische Ticket muss zwingend mit der Abfrage folgender Daten beginnen, um eine Identifikation im Admin-Bereich zu ermöglichen:
+
+1. **Nutzername im Panel:** Erforderlich für die Suche in der Benutzerdatenbank.
+2. **Hinterlegte E-Mail-Adresse:** Abgleich der Inhaberschaft.
+3. **Server-UUID (Server-ID):** Zu finden in der URL des Panels oder unter den Server-Einstellungen.
+
+Ohne diese Daten ist keine Einsicht in die Konsole oder die Log-Dateien gestattet.
+
+## 3. Analyse von Startproblemen und Crash-Loops
+
+Wenn ein Server in einer Schleife hängen bleibt (Boot-Loop) oder direkt nach dem Start crasht, ist methodisch vorzugehen.
+
+### Schritt 1: Konsolen-Log auswerten
+
+Fordere den Kunden auf, den relevanten Teil der Konsole als Text oder Screenshot zu senden. Achte auf folgende Schlüsselbegriffe:
+
+* `Authenticated mit Cfx.re failed`: Meist ein ungültiger oder fehlender License Key.
+* `Could not bind to port`: Ein Port-Konflikt (sofort an die Administration melden).
+* `Script Error`: Ein Fehler in einer Datei des Kunden.
+
+### Schritt 2: Basis-Check der Startparameter
+
+Prüfe im Reiter "Startup" des Pterodactyl-Panels:
+
+* Ist ein gültiger **Cfx.re License Key** eingetragen?
+* Sind die Pfadangaben zur `server.cfg` korrekt?
+* Entspricht die **Server-Version (Artifacts)** den Anforderungen der installierten Scripte?
+
+### Schritt 3: Empfehlung bei Script-Fehlern
+
+Wenn der Fehler eindeutig von einem Script verursacht wird, ist das Ticket mit folgendem Hinweis zu schließen:
+
+> "Dein Server weist einen Fehler in der Datei \[Dateiname] auf. Da dies ein inhaltlicher Fehler Ihrer Konfiguration ist, können wir hier keinen direkten Support leisten. Bitte nutzen Sie das offizielle Cfx.re Forum oder unser Community-Support-Forum unter \<#1496741592319529051> für Hilfestellungen durch andere Nutzer."
+
+## 4. Datenbankverwaltung (Internal Only)
+
+Da unsere Datenbank-Infrastruktur aus Sicherheitsgründen intern verwaltet wird, ergeben sich oft Fragen zum Import von Daten.
+
+* **Automatisierung:** Pterodactyl erstellt beim Anlegen einer Datenbank automatisch die Zugangsdaten. Diese sind für die `server.cfg` des Kunden bestimmt.
+* **phpMyAdmin:** Für manuelle Eingriffe (Import von `.sql` Dateien, Bearbeiten von User-Tabellen) stellen wir einen Zugang bereit. Dieser ist direkt über das Kunden-Dashboard einsehbar.
+* **Vorgehensweise bei Fehlern:** Sollte die Verbindung zur Datenbank fehlschlagen ("Connection Refused"), prüfe im Admin-Panel, ob der Datenbank-Container läuft. Falls ja, liegt der Fehler meist an falschen Zugangsdaten in der `server.cfg` des Kunden.
+
+## 5. Datei-Management und SFTP-Richtlinien
+
+Der Web-Dateimanager von Pterodactyl ist für kleinere Änderungen an Konfigurationsdateien gedacht, nicht für den Massenupload von Ressourcen.
+
+### Upload-Beschränkungen
+
+* **Limit:** Der Web-Manager hat ein hartes Limit von **2 GB pro Datei**.
+* **Problematik:** Bei großen Uploads über den Browser kommt es häufig zu Timeouts oder korrupten Dateien.
+
+### Support-Empfehlung
+
+Weise Kunden bei größeren Projekten (MLOs, Fahrzeug-Packs, komplette Frameworks) ausdrücklich auf die Nutzung von **WinSCP** hin.
+
+* Die Zugangsdaten finden Kunden im Panel unter "Settings" -> "SFTP Details".
+* **Tipp für Kunden:** Große Ordner sollten lokal als `.zip` gepackt, hochgeladen und dann über die "Unarchive"-Funktion im Panel entpackt werden. Dies ist die schnellste und sicherste Methode.
+
+## 6. Performance-Analyse und Lags
+
+Wenn Kunden über Lags klagen, muss professionell kommuniziert werden, dass unsere Host-Systeme bereits auf maximalem Niveau arbeiten.
+
+### Unsere Host-Konfiguration (Fakten für den Support)
+
+Um Lags serverseitig auszuschließen, sind alle Nodes wie folgt konfiguriert:
+
+1. **Windows Defender Deaktivierung:** Das Laufwerk ist von Echtzeit-Scans ausgeschlossen, um E/A-Verzögerungen zu verhindern.
+2. **Prozess-Priorität:** Alle Server-Instanzen laufen mit der Priorität "High".
+3. **Geschwindigkeits-Limit:** Die Geschwindigkeit ist fest auf 33 limitiert, um konstante Rechenzyklen ohne Spikes zu garantieren.
+
+### Fehleranalyse beim Kunden
+
+Performance-Einbrüche sind zu 99% "Script-Lags" oder "Network-Sync-Issues".
+
+* **Resmon-Check:** Fordere den Kunden auf, Ingame `/resmon 1` in die Konsole einzugeben. Alles über 5ms (CPU-Zeit) bei einem einzelnen Script ist kritisch.
+* **Mismatched Artifacts:** Veraltete Server-Builds können Desyncs verursachen. Empfehle ein Update auf die neueste "Recommended" Version.
+* **Mahnung zur Optimierung:** Erkläre freundlich, dass Hardware-Lags bei unserer Konfiguration technisch nahezu ausgeschlossen sind und der Kunde seine Ressourcen optimieren muss.
+
+## 7. Eskalationsmanagement
+
+Sollten alle oben genannten Schritte nicht zur Lösung führen und der Verdacht auf ein Problem mit dem Node (Host-System) bestehen, ist das Ticket zu eskalieren.
+
+**Eskalationsgründe:**
+
+* Mehrere Kunden auf demselben Node melden zeitgleich Probleme.
+* Der Server lässt sich im Panel nicht mehr stoppen oder killen.
+* Fehlermeldungen deuten auf volle Festplatten oder defekten RAM hin (z.B. "No space left on device").
+
+**Ansprechpartner:**
+
+* **Dustin** oder **Jannik** direkt kontaktieren und die Ticket-ID sowie die bisherigen Analyseergebnisse mitsenden.
