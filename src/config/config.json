@@ -7,12 +7,10 @@
     "logo_height": "32",
     "logo_text": "InstantRP docs"
   },
-
   "settings": {
     "search": true,
-    "theme_switcher": true
+    "theme_switcher": false
   },
-
   "params": {
     "footer_contact": {
       "enable": true,
@@ -20,9 +18,8 @@
     },
     "copyright": "Copyright &copy; 2025 InstantRP. Alle Rechte vorbehalten."
   },
-
   "navigation_button": {
-    "enable": true,
+    "enable": false,
     "label": "Loslegen",
     "translations": {
       "fr": "Commencer"

@@ -26,6 +26,10 @@ if (theme.fonts.font_family.secondary) {
 
 {head.map(({ tag: Tag, attrs, content }) => <Tag {...attrs} set:html={content} />)}
 
+<script is:inline>
+  document.documentElement.dataset.theme = 'dark';
+</script>
+
 <!-- google font css -->
     <AstroFont
       config={[

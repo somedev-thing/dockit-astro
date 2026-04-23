@@ -7,10 +7,6 @@
     {
       "name": "Support",
       "url": "/support/overview/"
-    },
-    {
-      "name": "Über uns",
-      "url": "/about/"
     }
   ],
   "footer": {
@@ -20,31 +16,15 @@
         {
           "name": "Discord Server",
           "url": "/"
-        },
-        {
-          "name": "Community Regeln",
-          "url": "/terms-conditions"
         }
       ]
     },
     "help_links": {
-      "title": "Nützliche Links",
+      "title": "Support",
       "links": [
         {
           "name": "Support Übersicht",
           "url": "/support/overview/"
-        },
-        {
-          "name": "Datenschutzerklärung",
-          "url": "/privacy-policy"
-        },
-        {
-          "name": "AGB",
-          "url": "/terms-conditions"
-        },
-        {
-          "name": "Über uns",
-          "url": "/about"
         }
       ]
     },

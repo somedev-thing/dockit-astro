@@ -8,28 +8,6 @@
           "slug": "support/overview"
         }
       ]
-    },
-    {
-      "label": "Über uns",
-      "items": [
-        {
-          "label": "Über InstantRP",
-          "slug": "about"
-        }
-      ]
-    },
-    {
-      "label": "Rechtliches",
-      "items": [
-        {
-          "label": "Datenschutzerklärung",
-          "slug": "privacy-policy"
-        },
-        {
-          "label": "AGB",
-          "slug": "terms-conditions"
-        }
-      ]
     }
   ]
 }

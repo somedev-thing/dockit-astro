@@ -71,7 +71,7 @@ import LinkButton from "~/components/LinkButton.astro";
 
 <Section title="Themenschwerpunkte <span class='light-text'>unserer Doku</span>" description="Erforsche unsere Hauptthemen und erhalte einen Eindruck von unseren Möglichkeiten.">
 
-<Grid columns={3}>
+<Grid columns={2}>
 <ListCard title="Support" imageIcon="/src/assets/element.svg" number="5">
 - [Support Übersicht](/support/overview/)
 - [Häufige Fragen](/support/overview/)
@@ -81,21 +81,13 @@ import LinkButton from "~/components/LinkButton.astro";
 <LinkButton href="/support/overview/" variant="text" className="mt-6 mb-8 ml-4">Support anzeigen</LinkButton>
 </ListCard>
 
-<ListCard title="Informationen" imageIcon="/src/assets/content.svg" number="3">
-- [Über uns](/about/)
-- [Datenschutz](/privacy-policy/)
-- [AGB](/terms-conditions/)
-
-<LinkButton href="/about/" variant="text" className="mt-6 mb-8 ml-4">Mehr über uns</LinkButton>
-</ListCard>
-
 <ListCard title="Community" imageIcon="/src/assets/layouts.svg" number="10">
 - Community Regeln
 - Discord Server
 - Team-Mitglieder
 - Events & Updates
 
-<LinkButton href="/about/" variant="text" className="mt-6 mb-8 ml-4">Community Guide</LinkButton>
+<LinkButton href="/support/overview/" variant="text" className="mt-6 mb-8 ml-4">Community Guide</LinkButton>
 </ListCard>
 </Grid>
 

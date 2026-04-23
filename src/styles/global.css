@@ -8,6 +8,7 @@
 @plugin "../tailwind-plugin/tw-bs-grid";
 
 :root {
+  color-scheme: dark !important;
   --sl-color-accent-low: color-mix(in srgb, var(--color-primary), #000 90%);
   --sl-color-accent: var(--color-primary);
   --sl-color-accent-high: color-mix(in srgb, var(--color-primary), #fff 70%);
