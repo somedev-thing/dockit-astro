@@ -2,12 +2,7 @@
   "main": [
     {
       "label": "Support",
-      "items": [
-        {
-          "label": "Übersicht",
-          "slug": "support/overview"
-        }
-      ]
+      "autogenerate": { "directory": "support" }
     }
   ]
 }
