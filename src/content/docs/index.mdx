@@ -1,34 +1,34 @@
 ---
-title: Dockit Build Documentation with Modern UI
-description: Get started building your docs site with DocKit.
+title: InstantRP Dokumentation
+description: Willkommen in der offiziellen Dokumentation von InstantRP.
 template: splash
 hero:
   title: |
-    Great <span data-icon-path='hero-icon.svg'></span> docs
-    <span class="light-text">developers love</span>
-  tagline: Discover tips, resources, and guidance to maximize experience with DocKit.
+    Großartige <span data-icon-path='hero-icon.svg'></span> Dokumentation
+    <span class="light-text">die Spieler lieben</span>
+  tagline: Entdecke Tipps, Ressourcen und Anleitungen, um das Beste aus InstantRP herauszuholen.
 ---
 
 import Section from "~/components/Section.astro";
 import Card from "~/components/user-components/NewCard.astro";
 import Grid from "~/components/user-components/Grid.astro";
 
-<Section title="Powerful features
-<span class='light-text'>for documentations</span>" description="Explore the tools and design choices that make documentation efficient.">
+<Section title="Leistungsstarke Funktionen
+<span class='light-text'>für unsere Community</span>" description="Entdecke die Tools und Design-Entscheidungen, die unsere Dokumentation effizient machen.">
 
 <Grid columns={4}>
-  <Card title="Well organized" icon="substack" iconColor="#FF8585">
-    The transparency of our data will help you make the informed decisions you need to.
+  <Card title="Gut organisiert" icon="substack" iconColor="#FF8585">
+    Die Transparenz unserer Daten hilft dir, die informierten Entscheidungen zu treffen, die du brauchst.
   </Card>
-  <Card title="Lightning fast" icon="seti:vite" iconColor="#7BE1A4">
-  Our performance optimization ensures quick load times and a smooth user experience.
+  <Card title="Blitzschnell" icon="seti:vite" iconColor="#7BE1A4">
+  Unsere Performance-Optimierung sorgt für schnelle Ladezeiten und ein reibungsloses Nutzererlebnis.
   </Card>
 
-<Card title="Powerful search" icon="seti:code-search" iconColor="#FFD97B">
-  Our search functionality helps users find information quickly and easily.
+<Card title="Effiziente Suche" icon="seti:code-search" iconColor="#FFD97B">
+  Unsere Suchfunktion hilft Nutzern, Informationen schnell und einfach zu finden.
 </Card>
-<Card title="Very customized" icon="seti:config" iconColor="#979BFF">
-  Tailor the documentation to fit your brand and project needs with ease.
+<Card title="Hochgradig angepasst" icon="seti:config" iconColor="#979BFF">
+  Wir haben die Dokumentation genau auf die Bedürfnisse von InstantRP zugeschnitten.
 </Card>
 
 </Grid>
@@ -38,30 +38,30 @@ import HeroTabs from "~/components/HeroTabs.astro";
 import HeroTabsItem from "~/components/HeroTabsItem.astro";
 
 <Section
-  title="Get started quickly <span class='light-text'>in just 3 simple steps</span>"
-  description="A fast and frustration-free way to set up and start your documentation."
+  title="Schnell durchstarten <span class='light-text'>in nur 3 einfachen Schritten</span>"
+  description="Ein schneller und frustfreier Weg, um mit InstantRP zu beginnen."
 >
   <HeroTabs>
     <HeroTabsItem
-      title="Install our template"
-      subtitle="Set up in seconds with our template ."
+      title="Registrieren"
+      subtitle="Erstelle dein Konto in wenigen Sekunden."
       number={1}
       image="/src/assets/step-1.png"
-      imageAlt="Step 1 image"
+      imageAlt="Schritt 1 Bild"
     />
     <HeroTabsItem
-      title="Import what you need"
-      subtitle="Bring components or functions into projecs."
+      title="Regeln lesen"
+      subtitle="Mach dich mit unseren Community-Richtlinien vertraut."
       number={2}
       image="/src/assets/step-2.png"
-      imageAlt="Step 2 image"
+      imageAlt="Schritt 2 Bild"
     />
     <HeroTabsItem
-      title="Start documentation"
-      subtitle="Start documenting your project immediately."
+      title="Spielen"
+      subtitle="Starte sofort dein Abenteuer auf InstantRP."
       number={3}
       image="/src/assets/step-3.png"
-      imageAlt="Step 3 image"
+      imageAlt="Schritt 3 Bild"
     />
   </HeroTabs>
 </Section>
@@ -69,94 +69,43 @@ import HeroTabsItem from "~/components/HeroTabsItem.astro";
 import ListCard from "~/components/user-components/ListCard.astro";
 import LinkButton from "~/components/LinkButton.astro";
 
-<Section title="Feature topics for <span class='light-text'>our documentation</span>" description="Explore our featured topics and get an idea of our capabilities.">
+<Section title="Themenschwerpunkte <span class='light-text'>unserer Doku</span>" description="Erforsche unsere Hauptthemen und erhalte einen Eindruck von unseren Möglichkeiten.">
 
 <Grid columns={3}>
-<ListCard title="UI Components" imageIcon="/src/assets/element.svg" number="15">
-- [Buttons & Links](/contents/components/using-components/)
-- [Navigation Menus](/contents/components/using-components/)
-- [Cards & Panels](/contents/components/using-components/)
-- [Tabs & Accordions](/contents/components/using-components/)
-- [Forms & Inputs](/contents/components/using-components/)
-- [Tables & Lists](/contents/components/using-components/)
+<ListCard title="Support" imageIcon="/src/assets/element.svg" number="5">
+- [Support Übersicht](/support/overview/)
+- [Häufige Fragen](/support/overview/)
+- [Problembehandlung](/support/overview/)
+- [Ticket-System](/support/overview/)
 
-<LinkButton href="/contents/components/using-components/" variant="text" className="mt-6 mb-8 ml-4">View all components</LinkButton>
+<LinkButton href="/support/overview/" variant="text" className="mt-6 mb-8 ml-4">Support anzeigen</LinkButton>
 </ListCard>
 
-<ListCard title="Content Writing" imageIcon="/src/assets/content.svg" number="18">
-- Markdown Basics
-- MDX Components
-- Code Examples
-- API Documentation
-- Tutorial Writing
-- Best Practices
+<ListCard title="Informationen" imageIcon="/src/assets/content.svg" number="3">
+- [Über uns](/about/)
+- [Datenschutz](/privacy-policy/)
+- [AGB](/terms-conditions/)
 
-<LinkButton href="/contents/editing/add-new-doc/" variant="text" className="mt-6 mb-8 ml-4">View writing guide</LinkButton>
+<LinkButton href="/about/" variant="text" className="mt-6 mb-8 ml-4">Mehr über uns</LinkButton>
 </ListCard>
 
-<ListCard title="Page Layouts" imageIcon="/src/assets/layouts.svg" number="8">
-- Homepage Templates
-- Documentation Pages
-- API Reference Layout
-- Tutorial Structure
-- Landing Pages
-- Error Pages
+<ListCard title="Community" imageIcon="/src/assets/layouts.svg" number="10">
+- Community Regeln
+- Discord Server
+- Team-Mitglieder
+- Events & Updates
 
-<LinkButton href="/getting-started/introduction/overview/" variant="text" className="mt-6 mb-8 ml-4">View layouts</LinkButton>
+<LinkButton href="/about/" variant="text" className="mt-6 mb-8 ml-4">Community Guide</LinkButton>
 </ListCard>
 </Grid>
 
-<Grid columns={3}>
-
-<ListCard title="Code Syntax" imageIcon="/src/assets/code-block.svg" number="10" image="/src/assets/code-image.png">
-
-- Syntax Highlighting
-- Line Numbers
-- Copy Button
-- Language Labels
-- Diff Highlighting
-- File Names
-
-<LinkButton
-  href="/getting-started/introduction/overview/"
-  variant="text"
-  className="mt-6 mb-8 ml-4"
->
-  View code guide
-</LinkButton>
-
-</ListCard>
-
-<ListCard title="Version History" imageIcon="/src/assets/changelogs.svg" number="25">
-
-- Release Notes
-- Feature Updates
-- Bug Fixes
-- Breaking Changes
-- Migration Guides
-- Deprecated Features
-
-<LinkButton
-  href="/getting-started/introduction/overview/"
-  variant="text"
-  className="mt-6 mb-8 ml-4"
->
-  View changelog
-</LinkButton>
-
-</ListCard>
-
-</Grid>
- 
 </Section>
-
-
 
 import ThemeDemo from "~/components/ThemeDemo.astro";
 
 <Section
-  title="Switch easily from <span class='light-text'>dark/light mode</span>"
-  description="Dedicated toggle button to switch between dark and light mode."
+  title="Einfacher Wechsel zwischen <span class='light-text'>Dark/Light Mode</span>"
+  description="Nutze den praktischen Umschalter oben rechts."
 >
 
 <ThemeDemo
@@ -170,30 +119,30 @@ import AccordionContainer from "~/components/AccordionContainer.astro";
 import Accordion from "~/components/Accordion.astro";
 
 <Section
-  title="Have question? <span class='light-text'>We’re here to help</span>"
-  description="Get answers to the general questions people have asked."
+  title="Fragen? <span class='light-text'>Wir sind hier, um zu helfen</span>"
+  description="Erhalte Antworten auf die am häufigsten gestellten Fragen."
 >
 
 <AccordionContainer tabList={
   [
     {
       type: 'basic',
-      title: 'Getting Started',
-      subtitle:'Some questions about how to start.',
+      title: 'Erste Schritte',
+      subtitle:'Fragen zum Start.',
       icon: "rocket"
 
     },
     {
       type: 'setting',
-      title: 'Settings & Configurations',
-      subtitle:'How to configure our documentation.',
+      title: 'Einstellungen',
+      subtitle:'Konfiguration und Technik.',
       icon: "settings"
 
     },
     {
       type: 'help',
-      title: 'Help & Support',
-      subtitle:'What type of support we provide.',
+      title: 'Hilfe & Support',
+      subtitle:'Wie wir dich unterstützen.',
       icon: "support"
 
     }
@@ -202,60 +151,29 @@ import Accordion from "~/components/Accordion.astro";
 }>
 
 <Accordion
-  question="How do I get started with Dockit?"
-  answer="Simply install our template, import the components you need, and start documenting your project. The setup process takes just a few minutes."
+  question="Wie fange ich bei InstantRP an?"
+  answer="Registriere dich einfach, lies die Regeln und verbinde dich mit unserem Server. Der Prozess dauert nur wenige Minuten."
   type="basic"
 />
 <Accordion
-  question="What are the system requirements?"
-  answer="Dockit requires Node.js 18+ and works with any modern web browser. It's built on Astro and supports all major operating systems."
+  question="Was sind die Systemanforderungen?"
+  answer="Du benötigst eine stabile Internetverbindung und einen PC, der die Mindestanforderungen für RP-Gaming erfüllt."
   type="basic"
 />
 <Accordion
-  question="Is Dockit free to use?"
-  answer="Yes, Dockit is completely free and open source. You can use it for personal and commercial projects without any limitations."
-  type="basic"
-/>
-<Accordion
-  question="Can I customize the design?"
-  answer="Absolutely! Dockit is highly customizable with Tailwind CSS. You can modify colors, layouts, components, and add your own branding."
+  question="Ist InstantRP kostenlos?"
+  answer="Ja, InstantRP ist komplett kostenlos zugänglich. Wir finanzieren uns über freiwillige Spenden der Community."
   type="basic"
 />
 
 <Accordion
-  question="How do I change the theme colors?"
-  answer="You can customize theme colors by modifying the CSS custom properties in your theme configuration file or through the Tailwind config."
-  type="setting"
-/>
-<Accordion
-  question="Can I add custom components?"
-  answer="Yes, you can create and add custom Astro components. Simply place them in the components folder and import them where needed."
-  type="setting"
-/>
-<Accordion
-  question="How do I configure navigation?"
-  answer="Navigation is configured through the menu.json file in your config folder. You can add, remove, or reorder menu items as needed."
-  type="setting"
-/>
-<Accordion
-  question="Can I use my own domain?"
-  answer="Yes, you can deploy Dockit to any hosting service and use your custom domain. We provide deployment guides for popular platforms."
-  type="setting"
-/>
-
-<Accordion
-  question="Where can I get help?"
-  answer="You can get help through our GitHub discussions, documentation, or community Discord server. We also provide email support for complex issues."
+  question="Wo finde ich Hilfe?"
+  answer="Du findest Hilfe in unserem Discord, über unser Ticket-System oder direkt hier in der Dokumentation."
   type="help"
 />
 <Accordion
-  question="How do I report bugs?"
-  answer="Please report bugs through our GitHub issues page with detailed information about the problem and steps to reproduce it."
-  type="help"
-/>
-<Accordion
-  question="Do you offer premium support?"
-  answer="While Dockit is free, we offer premium consulting services for custom implementations and enterprise deployments."
+  question="Wie melde ich Bugs?"
+  answer="Bitte melde technische Fehler über unseren Discord-Kanal für Fehlerberichte."
   type="help"
 />
 
