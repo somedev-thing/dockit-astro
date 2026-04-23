@@ -1,5 +1,103 @@
 ---
 title: Zahlungen & Abrechnung
-description: ""
+description: "Standardisierte Abläufe für Support-Anfragen zu Zahlungen,
+  Paket-Anpassungen, Rückerstattungen und Server-Laufzeiten"
 ---
+***
 
+# Billing & Abrechnung
+
+Dieses Dokument definiert die standardisierten Abläufe für alle Support-Anfragen, die sich auf Zahlungen, Paket-Anpassungen, Rückerstattungen und Server-Laufzeiten beziehen.
+
+***
+
+## Wichtige Grundregel für alle Billing-Tickets
+
+Bevor ein Billing-Ticket bearbeitet werden kann, benötigen wir zwingend drei Informationen vom Kunden:
+
+* Den exakten **Nutzernamen im Panel** (nicht den Discord-Namen)
+* Die **hinterlegte E-Mail-Adresse**
+* Die **Vorgangs-ID / Transaktions-ID** (falls vorhanden)
+
+Das System fordert diese Daten automatisch an. Sollten diese Informationen fehlen oder fehlerhaft sein, frage immer zuerst freundlich danach, bevor du mit der Fehlersuche beginnst.
+
+***
+
+## Bereitstellungsprobleme nach erfolgreicher Zahlung
+
+Kunden melden sich oft direkt nach der Zahlung, wenn der Server noch nicht vollständig bereitgestellt ist.
+
+> **Hinweis:** Das Panel zeigt sowohl dem Kunden als auch im Admin-Bereich live den genauen Schritt an, in dem sich der Server während der Initialisierung befindet.
+
+### Kundenkommunikation
+
+* Weise den Kunden darauf hin, dass es nach einer erfolgreichen Zahlung **bis zu 10 Minuten** dauern kann, bis der Server im Panel vollständig bereitgestellt ist.
+* Frage den Kunden proaktiv, ob während des Bezahlvorgangs Fehlermeldungen aufgetreten oder sichtbar gewesen sind.
+* Bitte den Kunden, im Panel den aktuellen Initialisierungs-Schritt zu überprüfen.
+
+### Interner Ablauf (Fehlersuche)
+
+Prüfe den Status der Zahlung im internen Panel unter: `vye.lol/dashboard/admin/transaktions`
+
+Suche dort nach der Transaktionsnummer oder dem Nutzernamen. Anhand der Ausgabe reagierst du wie folgt:
+
+**Fehlercode 3495, 7732 oder Transaktion nicht auffindbar:**
+
+* **Aktion:** Eskalation an Dustin.
+* **Antwort an den Kunden:** Teile dem Kunden freundlich mit, dass es ein Problem bei der Verarbeitung gab und du das Ticket an die Administration zur genauen Prüfung weitergeleitet hast.
+
+**Fehlercode 129 (`err_not_enough_resources`):**
+
+* **Aktion:** Dies ist ein technischer Fehler bei der Bereitstellung.
+* **Antwort an den Kunden:** Weise den Kunden auf einen technischen Fehler hin und bitte ihn, es später erneut zu versuchen.
+* **Lösung:** Biete dem Kunden an, den Betrag entweder komplett zurückzuerstatten oder die Summe als Shopguthaben + 5% Entschädigungs-Bonus gutzuschreiben.
+* **Hinweis:** Die Gutschrift oder Rückerstattung kann direkt über die Transaktion im Dashboard durchgeführt werden.
+
+***
+
+## Paketwechsel (Upgrades und Downgrades)
+
+Da wir vorkonfigurierte Server-Pakete anbieten, sind einzelne Hardware-Upgrades (z.B. nur RAM hinzufügen) nicht möglich. Es kann nur das gesamte Paket gewechselt werden.
+
+> ⚠️ **Achtung:** Server Up- und Downgrades können nur von Admins ausgeführt werden. Diese Tickets erfordern immer eine Eskalation!
+
+### Kundenkommunikation & Ablauf
+
+**Upgrades:** Erkläre dem Kunden, dass das Upgrade initialisiert wird, aber erst aktiv ist, nachdem er das neue Paket abonniert hat. Dies ist nach der Initialisierung sofort möglich. Der Kunde zahlt dabei nur die Differenz zum aktuellen Paket, nicht den vollen Preis.
+
+**Downgrades:** Erkläre dem Kunden, dass das Downgrade nach der Bearbeitung sofort aktiv ist. Das überschüssige Geld der laufenden Periode wird dem Kundenkonto automatisch als Shopguthaben gutgeschrieben.
+
+### Interner Ablauf nach Eskalation (Für Admins)
+
+Pfad zur Bearbeitung / anteiligen Erstattung:
+`/dashboard/admin/transaktions` → Transaktion suchen → Rückerstattung / Anpassung einleiten.
+
+***
+
+## Stornierungen und Rückerstattungen (Refunds)
+
+Aufgrund der Natur unserer Dienstleistungen (digitale Produkte / Server-Ressourcen) sind generelle Rückerstattungen bei Nichtgefallen ausgeschlossen.
+
+### Ausnahme: Doppelbuchung
+
+Wenn ein Kunde versehentlich zwei Server gebucht hat, können wir aus Kulanz erstatten, wenn folgende Bedingungen erfüllt sind:
+
+* Der Kunde meldet sich **innerhalb von 24 Stunden** nach der Buchung.
+* Der zweite Server wurde **nachweislich nicht genutzt**.
+
+**Interner Ablauf:**
+
+1. Prüfe im Panel, ob der Server gestartet/genutzt wurde.
+2. Wenn die Bedingungen erfüllt sind, leite die Erstattung über das Transaktionspanel ein: `vye.lol/dashboard/admin/transaktions` → Transaktion → Rückerstattung.
+
+***
+
+## Laufzeitende, Server-Sperrungen und Datenrettung
+
+Unsere Server-Abonnements müssen monatlich manuell erneuert werden.
+
+### Kundenkommunikation (Regelwerk)
+
+* **Frist:** Bei einer ausbleibenden Verlängerung wird der Server gestoppt. Der Kunde hat ab diesem Zeitpunkt genau **7 Tage** Zeit, den Server zu verlängern oder seine Daten herunterzuladen.
+* **Löschung:** Nach Ablauf dieser 7 Tage wird der Server **unwiderruflich gelöscht**.
+* **Wiederherstellung:** Mache deutlich, dass eine Wiederherstellung der Daten (Datenbank, Scripte etc.) nach der endgültigen Löschung **technisch unmöglich** ist. Ausnahmen können hierbei nicht gemacht werden.
