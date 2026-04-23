@@ -5,32 +5,36 @@ description: Dieses Dokument dient als detaillierte Referenz für das
   FiveM-Hosting-Umfeld. Es definiert die Grenzen unserer Dienstleistung und
   bietet strukturierte Lösungswege für häufig auftretende Probleme.
 ---
+# Technische Server-Probleme
+
+Dieses Dokument dient als detaillierte Referenz für das Support-Team zur Bewältigung technischer Herausforderungen im FiveM-Hosting-Umfeld. Es definiert die Grenzen unserer Dienstleistung und bietet strukturierte Lösungswege für häufig auftretende Probleme.
+
 ## 1. Definition der Support-Zuständigkeit
 
 Unser Versprechen ist die Bereitstellung einer stabilen, hochperformanten Infrastruktur. Die inhaltliche Gestaltung und Wartung der Server-Software (Scripts, Frameworks, MLOs) obliegt dem Kunden.
 
 ### Grundsatz der Nicht-Einmischung
 
-* **Kein Script-Debugging:** Support-Mitarbeiter untersuchen keine fehlerhaften Lua-Scripts oder SQL-Fehler innerhalb von Frameworks (ESX, QBCore, vRP).
+* **Kein Script-Debugging:** Als Support-Mitarbeiter untersuchst du keine fehlerhaften Lua-Scripts oder SQL-Fehler innerhalb von Frameworks (ESX, QBCore, vRP).
 * **Infrastruktur vs. Content:** Wenn die Pterodactyl-Konsole "Running" anzeigt, ist unsere Dienstleistung erbracht. Fehler, die danach in der Konsole erscheinen, sind fast ausnahmslos Konfigurationsfehler des Kunden.
 
 ### Ausnahmeregelung
 
-Support wird nur geleistet, wenn ein neu installierter Server ohne jegliche Modifikationen des Kunden nicht startet. In diesem Fall liegt ein potenzieller Fehler im "Egg" (Installations-Script) oder dem Host-System vor.
+Support leistest du nur dann, wenn ein neu installierter Server ohne jegliche Modifikationen des Kunden nicht startet. In diesem Fall liegt ein potenzieller Fehler im "Egg" (Installations-Script) oder dem Host-System vor.
 
 ## 2. Pflichtdaten für die Bearbeitung
 
-Jedes technische Ticket muss zwingend mit der Abfrage folgender Daten beginnen, um eine Identifikation im Admin-Bereich zu ermöglichen:
+Jedes technische Ticket musst du zwingend mit der Abfrage folgender Daten beginnen, um eine Identifikation im Admin-Bereich zu ermöglichen:
 
 1. **Nutzername im Panel:** Erforderlich für die Suche in der Benutzerdatenbank.
 2. **Hinterlegte E-Mail-Adresse:** Abgleich der Inhaberschaft.
 3. **Server-UUID (Server-ID):** Zu finden in der URL des Panels oder unter den Server-Einstellungen.
 
-Ohne diese Daten ist keine Einsicht in die Konsole oder die Log-Dateien gestattet.
+Ohne diese Daten darfst du keine Einsicht in die Konsole oder die Log-Dateien nehmen.
 
 ## 3. Analyse von Startproblemen und Crash-Loops
 
-Wenn ein Server in einer Schleife hängen bleibt (Boot-Loop) oder direkt nach dem Start crasht, ist methodisch vorzugehen.
+Wenn ein Server in einer Schleife hängen bleibt (Boot-Loop) oder direkt nach dem Start crasht, gehst du methodisch vor.
 
 ### Schritt 1: Konsolen-Log auswerten
 
@@ -50,16 +54,16 @@ Prüfe im Reiter "Startup" des Pterodactyl-Panels:
 
 ### Schritt 3: Empfehlung bei Script-Fehlern
 
-Wenn der Fehler eindeutig von einem Script verursacht wird, ist das Ticket mit folgendem Hinweis zu schließen:
+Wenn der Fehler eindeutig von einem Script verursacht wird, schließt du das Ticket mit folgendem Hinweis:
 
-> "Dein Server weist einen Fehler in der Datei \[Dateiname] auf. Da dies ein inhaltlicher Fehler Ihrer Konfiguration ist, können wir hier keinen direkten Support leisten. Bitte nutzen Sie das offizielle Cfx.re Forum oder unser Community-Support-Forum unter \<#1496741592319529051> für Hilfestellungen durch andere Nutzer."
+> "Dein Server weist einen Fehler in der Datei \$\$Dateiname\$\$auf. Da dies ein inhaltlicher Fehler deiner Konfiguration ist, können wir hier keinen direkten Support leisten. Bitte nutze das offizielle Cfx.re Forum oder unser Community-Support-Forum unter \<#1496741592319529051> für Hilfestellungen durch andere Nutzer."
 
 ## 4. Datenbankverwaltung (Internal Only)
 
 Da unsere Datenbank-Infrastruktur aus Sicherheitsgründen intern verwaltet wird, ergeben sich oft Fragen zum Import von Daten.
 
 * **Automatisierung:** Pterodactyl erstellt beim Anlegen einer Datenbank automatisch die Zugangsdaten. Diese sind für die `server.cfg` des Kunden bestimmt.
-* **phpMyAdmin:** Für manuelle Eingriffe (Import von `.sql` Dateien, Bearbeiten von User-Tabellen) stellen wir einen Zugang bereit. Dieser ist direkt über das Kunden-Dashboard einsehbar.
+* **phpMyAdmin:** Für manuelle Eingriffe (Import von `.sql` Dateien, Bearbeiten von User-Tabellen) stellen wir einen Zugang bereit. Dieser ist für den Kunden direkt über das Dashboard einsehbar.
 * **Vorgehensweise bei Fehlern:** Sollte die Verbindung zur Datenbank fehlschlagen ("Connection Refused"), prüfe im Admin-Panel, ob der Datenbank-Container läuft. Falls ja, liegt der Fehler meist an falschen Zugangsdaten in der `server.cfg` des Kunden.
 
 ## 5. Datei-Management und SFTP-Richtlinien
@@ -80,7 +84,7 @@ Weise Kunden bei größeren Projekten (MLOs, Fahrzeug-Packs, komplette Framework
 
 ## 6. Performance-Analyse und Lags
 
-Wenn Kunden über Lags klagen, muss professionell kommuniziert werden, dass unsere Host-Systeme bereits auf maximalem Niveau arbeiten.
+Wenn Kunden über Lags klagen, kommuniziere professionell, dass unsere Host-Systeme bereits auf maximalem Niveau arbeiten.
 
 ### Unsere Host-Konfiguration (Fakten für den Support)
 
@@ -96,11 +100,11 @@ Performance-Einbrüche sind zu 99% "Script-Lags" oder "Network-Sync-Issues".
 
 * **Resmon-Check:** Fordere den Kunden auf, Ingame `/resmon 1` in die Konsole einzugeben. Alles über 5ms (CPU-Zeit) bei einem einzelnen Script ist kritisch.
 * **Mismatched Artifacts:** Veraltete Server-Builds können Desyncs verursachen. Empfehle ein Update auf die neueste "Recommended" Version.
-* **Mahnung zur Optimierung:** Erkläre freundlich, dass Hardware-Lags bei unserer Konfiguration technisch nahezu ausgeschlossen sind und der Kunde seine Ressourcen optimieren muss.
+* **Mahnung zur Optimierung:** Erkläre freundlich, dass Hardware-Lags bei unserer Konfiguration technisch nahezu ausgeschlossen sind und der Kunde seine Ressourcen selbst optimieren muss.
 
 ## 7. Eskalationsmanagement
 
-Sollten alle oben genannten Schritte nicht zur Lösung führen und der Verdacht auf ein Problem mit dem Node (Host-System) bestehen, ist das Ticket zu eskalieren.
+Sollten alle oben genannten Schritte nicht zur Lösung führen und der Verdacht auf ein Problem mit dem Node (Host-System) bestehen, eskaliere das Ticket.
 
 **Eskalationsgründe:**
 
@@ -110,4 +114,4 @@ Sollten alle oben genannten Schritte nicht zur Lösung führen und der Verdacht 
 
 **Ansprechpartner:**
 
-* **Dustin** oder **Jannik** direkt kontaktieren und die Ticket-ID sowie die bisherigen Analyseergebnisse mitsenden.
+* Kontaktiere **Dustin** oder **Jannik** direkt und sende die Ticket-ID sowie deine bisherigen Analyseergebnisse mit.
